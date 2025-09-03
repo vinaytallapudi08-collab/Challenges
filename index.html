@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student College Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      width: 350px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 8px 0 4px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #f0f8ff;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>College Student Details</h2>
+    <form id="studentForm">
+      <label for="name">Student Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="roll">Roll Number:</label>
+      <input type="text" id="roll" required>
+
+      <label for="college">College Name:</label>
+      <input type="text" id="college" required>
+
+      <label for="course">Course:</label>
+      <select id="course" required>
+        <option value="">-- Select Course --</option>
+        <option>B.Tech</option>
+        <option>B.Sc</option>
+        <option>B.Com</option>
+        <option>BA</option>
+        <option>M.Tech</option>
+        <option>MBA</option>
+      </select>
+
+      <label for="year">Year:</label>
+      <select id="year" required>
+        <option value="">-- Select Year --</option>
+        <option>1st Year</option>
+        <option>2nd Year</option>
+        <option>3rd Year</option>
+        <option>4th Year</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    document.getElementById("studentForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      let name = document.getElementById("name").value;
+      let roll = document.getElementById("roll").value;
+      let college = document.getElementById("college").value;
+      let course = document.getElementById("course").value;
+      let year = document.getElementById("year").value;
+
+      let outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = `
+        <h3>Student Details Entered:</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Roll No:</strong> ${roll}</p>
+        <p><strong>College:</strong> ${college}</p>
+        <p><strong>Course:</strong> ${course}</p>
+        <p><strong>Year:</strong> ${year}</p>
+      `;
+    });
+  </script>
+
+</body>
+</html>
